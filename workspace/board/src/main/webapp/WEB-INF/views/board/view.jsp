@@ -4,18 +4,20 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Home</title>
+		<title>게시물 조회</title>
 	</head>
+	
 	<body>
-	<h1>
-		Hello world!  
-	</h1>
-	
-	<P>  The time on the server is ${serverTime}. </P>
-	
-	<p>
-		<a href="/board/list">게시물 목록</a>
-		<a href="/board/write">게시물 작성</a>
-	</p>
+		<label>제목</label>
+		${view.title}
+		<br />
+		
+		<label>작성자</label>
+		${view.writer}
+		<br />
+		
+		<label>내용</label>
+		${view.content}
+		<br />
 	</body>
 </html>
