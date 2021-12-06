@@ -5,10 +5,35 @@
   
 <mapper namespace="com.board.mappers.board">
 
+	<!-- 
+	resultType는 데이터를 쿼리를 실행한 뒤 결과가 있을 경우에 사용하며, 
+	반대로 데이터를 넣을 때는 parameterType를 사용 
+	-->
+
 	<!-- 게시물 목록 -->
 	<select id="list" resultType="com.board.domain.BoardVO">
-		select bno, title, content, writer, regDate, viewCnt
-		from tbl_board
+		select 
+			bno, title, content, writer, regDate, viewCnt
+		from 
+			tbl_board
+	</select>
+	
+	<!-- 게시물 작성 -->
+	<select id="write" parameterType="com.board.domain.BoardVO">
+		insert into 
+			tbl_board (title, content, writer)
+		values 
+			(#{title}, #{content}, #{writer})
+	</select>
+	
+	<!-- 게시물 조회 -->
+	<select id="view" parameterType="int" resultType="com.board.domain.BoardVO">
+		select 
+			bno, title, content, writer, regDate, viewCnt
+		from 
+			tbl_board
+		where
+			bno = #{bno}
 	</select>
 
 </mapper>
