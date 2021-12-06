@@ -19,12 +19,12 @@
 	</select>
 	
 	<!-- 게시물 작성 -->
-	<select id="write" parameterType="com.board.domain.BoardVO">
+	<insert id="write" parameterType="com.board.domain.BoardVO">
 		insert into 
 			tbl_board (title, content, writer)
 		values 
 			(#{title}, #{content}, #{writer})
-	</select>
+	</insert>
 	
 	<!-- 게시물 조회 -->
 	<select id="view" parameterType="int" resultType="com.board.domain.BoardVO">
@@ -35,5 +35,17 @@
 		where
 			bno = #{bno}
 	</select>
+	
+	<!-- 게시물 수정 -->
+	<update id="modify" parameterType="com.board.domain.BoardVO">
+		update tbl_board 
+		set 
+			title = #{title},
+			content = #{content},
+			writer = #{writer}
+		where 
+			bno = ${bno}
+	</update>
+	
 
 </mapper>
