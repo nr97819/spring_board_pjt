@@ -63,11 +63,11 @@
 	</select>
 	
 	<!-- 게시물 목록 + 페이징 -->
-	<select id="listPage" resultType="com.board.domain.BoardVO">
+	<select id="listPage" parameterType="hashMap" resultType="com.board.domain.BoardVO">
 		select 
 			bno, title, content, writer, regDate, viewCnt
 		from 
-			tbl_board
+			tbl_boardd
 		order by bno desc
 			limit #{displayPost}, #{postNum}
 	</select>
