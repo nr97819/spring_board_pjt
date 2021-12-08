@@ -67,6 +67,13 @@ public class BoardController {
 		service.delete(bno);
 		return "redirect:/board/list";
 	}
+	
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value="/listPage", method=RequestMethod.GET)
+	public void getListPage(Model model, @RequestParam("num") int num ) throws Exception {
+		List<BoardVO> list = service.list();
+		model.addAttribute("list", list);
+	}
 		
 }
 
