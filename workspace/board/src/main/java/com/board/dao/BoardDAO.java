@@ -25,5 +25,5 @@ public interface BoardDAO {
 	public int count() throws Exception;
 
 	// 게시물 목록 + 페이징
-	public List listPage(int displayPost, int postNum) throws Exception;
+	public List<BoardVO> listPage(int displayPost, int postNum) throws Exception;
 }
