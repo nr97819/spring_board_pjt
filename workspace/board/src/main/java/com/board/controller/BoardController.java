@@ -85,6 +85,7 @@ public class BoardController {
 		model.addAttribute("pageNum", pageNum);
 	}
 		
+	
 }
 
 
